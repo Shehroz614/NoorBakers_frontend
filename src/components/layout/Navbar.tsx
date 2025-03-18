@@ -1,0 +1,66 @@
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { CakeSlice, Coffee, Star, MapPin, Clock, Phone, ChevronRight, ShoppingBag, Award, Heart, Mail, Send, ArrowRight, MessageCircle, User } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/common/ThemeToggle";
+import { useTheme } from "@/contexts/ThemeContext";
+import MobileMenu from "@/components/layout/MobileMenu";
+import logowhite from "@/assets/logowhite.png";
+import logodark from "@/assets/logodark.png";
+
+const Navbar = () => {
+    const { theme } = useTheme();
+ const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos, visible]);
+
+  return (
+    <nav className={`${theme === 'dark' ? 'bg-[#2d2a33] border-[#3a3741]' : 'bg-white border-[#FEC6A1]/20'} 
+        border-b py-4 px-6 md:px-10 sticky top-0 z-50 shadow-sm transition-all duration-300 
+        ${visible ? 'navbar-visible' : 'navbar-hidden'}`}>
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} text-2xl md:text-3xl font-bold`}>
+          {theme === 'dark' ? <>
+            <img src={logowhite} alt="" className="w-40 h-16" /> 
+          </>:<>
+          
+           <img src={logodark} alt="" className="w-40 h-16" /> 
+          </>}
+          </div>
+          <div className="hidden md:flex space-x-6 items-center">
+            <Link to="/" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>Home</Link>
+            <Link to="/services" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>Services</Link>
+            <Link to="/about" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>About</Link>
+            <Link to="/contact" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>Contact</Link>
+            <ThemeToggle />
+          </div>
+          <div className="md:hidden flex items-center gap-4">
+            <ThemeToggle />
+            <button onClick={toggleMobileMenu} className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e]`}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <MobileMenu isOpen={mobileMenuOpen} toggleMenu={toggleMobileMenu} />
+      </nav>
+  )
+}
+
+export default Navbar
