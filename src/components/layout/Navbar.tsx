@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { useTheme } from "@/contexts/ThemeContext";
 import MobileMenu from "@/components/layout/MobileMenu";
-import logowhite from "@/assets/logowhite.png";
-import logodark from "@/assets/logodark.png";
+import logowhite from "@/assets/Mediamodifier-Design (4) (1).svg";
+import logodark from "@/assets/Mediamodifier-Design (5) (1).svg";
 
 const Navbar = () => {
     const { theme } = useTheme();
@@ -36,10 +36,10 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} text-2xl md:text-3xl font-bold`}>
           {theme === 'dark' ? <>
-            <img src={logowhite} alt="" className="w-40 h-16" /> 
+            <img src={logodark} alt="" className="w-40 h-16" /> 
           </>:<>
           
-           <img src={logodark} alt="" className="w-40 h-16" /> 
+           <img src={logowhite} alt="" className="w-40 h-16" /> 
           </>}
           </div>
           <div className="hidden md:flex space-x-6 items-center">

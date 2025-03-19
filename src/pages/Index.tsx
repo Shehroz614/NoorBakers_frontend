@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CakeSlice, Coffee, Star, MapPin, Clock, Phone, ChevronRight, ShoppingBag, Award, Heart, Mail, Send, ArrowRight, MessageCircle, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
@@ -76,6 +76,17 @@ const Index = () => {
     alert("Thank you for your message! We'll get back to you soon.");
   };
 
+  const instagramPosts = [
+    "https://images.unsplash.com/photo-1572897306051-abf270479682?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://plus.unsplash.com/premium_photo-1681826507324-0b3c43928753?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1623246123320-0d6636755796?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1553452118-621e1f860f43?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+   "https://images.unsplash.com/photo-1572897306051-abf270479682?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://plus.unsplash.com/premium_photo-1681826507324-0b3c43928753?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1623246123320-0d6636755796?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1553452118-621e1f860f43?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  ];
+
   return (
     <div className={`min-h-screen ${theme === 'dark' ? 'bg-[#221F26] text-white' : 'bg-[#FFFCF7]'}`}>
       {/* Navigation - Modified to hide/show on scroll */}
@@ -123,12 +134,21 @@ const Index = () => {
               Experience the magic of tradition blended with innovation in every handcrafted delight for every occasion
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in delay-300">
+              
+              <NavLink to={"/services"}>
+
               <Button className="bg-[#c39d5e] hover:bg-[#b38d4e] text-white rounded-md px-6 py-3 transition-transform hover:scale-105 animate-pulse-gold">
                 Services <ShoppingBag className="ml-1 h-4 w-4" />
               </Button>
+
+              </NavLink>
+              <NavLink to={"/about"}>
+
+
               <Button variant="outline" className={`border-[#c39d5e] text-[#c39d5e] rounded-md px-6 py-3 ${theme === 'dark' ? 'hover:bg-[#c39d5e]/20' : ''} transition-transform hover:scale-105`}>
                 About us <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
+              </NavLink>
             </div>
             
             {/* Enhanced social proof with awards */}
@@ -243,10 +263,10 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: "Premium Chocolate Cake", price: "$24.99", image: "https://picsum.photos/seed/cake2/500/500" },
-              { name: "Artisan Croissants", price: "$3.99", image: "https://picsum.photos/seed/croissant/500/500" },
-              { name: "Classic Baklava", price: "$18.99", image: "https://picsum.photos/seed/baklava/500/500" },
-              { name: "Signature Cookies", price: "$12.99", image: "https://picsum.photos/seed/cookies/500/500" }
+              { name: "Premium Chocolate Cake", price: "$24.99", image: "https://images.unsplash.com/photo-1553452118-621e1f860f43?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+              { name: "Artisan Croissants", price: "$3.99", image: "https://images.unsplash.com/photo-1737700089482-e6ce492f712f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+              { name: "Classic Baklava", price: "$18.99", image: "https://images.unsplash.com/photo-1598110750624-207050c4f28c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+              { name: "Signature Cookies", price: "$12.99", image: "https://images.unsplash.com/photo-1604908552986-eb22824b2150?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
             ].map((item, index) => (
               <div 
                 key={index} 
@@ -293,17 +313,17 @@ const Index = () => {
               {
                 title: "Wedding Cakes",
                 description: "Elegant multi-tiered cakes customized to your wedding theme",
-                image: "https://picsum.photos/seed/wedding/600/800"
+                image: "https://plus.unsplash.com/premium_photo-1716484116881-01a900990846?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               },
               {
                 title: "Birthday Celebrations",
                 description: "Fun and creative cakes that bring joy to your special day",
-                image: "https://picsum.photos/seed/birthday/600/800"
+                image: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               },
               {
                 title: "Corporate Events",
                 description: "Sophisticated desserts for your business gatherings",
-                image: "https://picsum.photos/seed/corporate/600/800"
+                image: "https://images.unsplash.com/photo-1624006229221-2abd931f266b?q=80&w=1997&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               }
             ].map((occasion, index) => (
               <div key={index} className="group relative overflow-hidden rounded-xl animate-on-scroll" style={{ transition: 'all 0.6s ease-out', transitionDelay: `${index * 150}ms` }}>
@@ -392,19 +412,23 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[...Array(8)].map((_, index) => (
-              <div key={index} className="relative group overflow-hidden rounded-xl animate-on-scroll" style={{ transition: 'all 0.6s ease-out', transitionDelay: `${index * 100}ms` }}>
-                <img 
-                  src={`https://picsum.photos/seed/insta${index}/400/400`}
-                  alt={`Instagram post ${index + 1}`}
-                  className="w-full aspect-square object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Heart className="w-8 h-8 text-white" />
-                </div>
-              </div>
-            ))}
-          </div>
+  {instagramPosts.map((image, index) => (
+    <div 
+      key={index} 
+      className="relative group overflow-hidden rounded-xl animate-on-scroll" 
+      style={{ transition: 'all 0.6s ease-out', transitionDelay: `${index * 100}ms` }}
+    >
+      <img 
+        src={image} 
+        alt={`Instagram post ${index + 1}`} 
+        className="w-full aspect-square object-cover group-hover:scale-110 transition-transform duration-500"
+      />
+      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <Heart className="w-8 h-8 text-white" />
+      </div>
+    </div>
+  ))}
+</div>;
         </div>
       </section>
 

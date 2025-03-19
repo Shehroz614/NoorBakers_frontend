@@ -228,13 +228,19 @@ const Services = () => {
               <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Birthday cake" />
             </div>
             <div className="image-gallery-item aspect-[4/3]">
-              <img src="https://images.unsplash.com/photo-1587248720327-8eb72872ed2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Cupcakes" />
+              <img src="https://images.unsplash.com/photo-1606188074044-fcd750f6996a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Cupcakes" />
+            </div>
+            <div className="image-gallery-item aspect-square">
+              <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Fruit cake" />
             </div>
             <div className="image-gallery-item aspect-square">
               <img src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Pastries" />
             </div>
             <div className="image-gallery-item aspect-[3/4]">
               <img src="https://images.unsplash.com/photo-1606188074044-fcd750f6996a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Custom cake" />
+            </div>
+            <div className="image-gallery-item aspect-[3/4]">
+              <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Birthday cake" />
             </div>
           </div>
         </div>
