@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CakeSlice, Coffee, Star, MapPin, Clock, Phone, ChevronRight, ShoppingBag, Heart, Mail, Facebook, Instagram, Twitter, Youtube, ArrowUp } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
-import logodark from "/Mediamodifier-Design (4) (1).svg";
-import logowhite from "/Mediamodifier-Design (5) (1).svg";
+import logodark from "@/assets/Mediamodifier-Design (4) (1).svg";
+import logowhite from "@/assets/Mediamodifier-Design (5) (1).svg";
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -15,12 +15,12 @@ const Footer = () => {
   return (
     <footer className={`relative ${theme === 'dark' ? 'bg-[#1a181d]' : 'bg-[#221F26]'} text-white py-16 transition-colors duration-300`}>
       {/* Decorative top border */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-0">
+      {/* <div className="absolute top-0 left-0 w-full overflow-hidden leading-0">
         <svg className="relative block w-full h-[40px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" 
                 className={`${theme === 'dark' ? 'fill-[#2d2a33]' : 'fill-[#FFFCF7]'}`}></path>
         </svg>
-      </div>
+      </div> */}
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Main Footer Content */}
@@ -29,7 +29,8 @@ const Footer = () => {
           <div className="text-center md:text-left">
             <div className="mb-6 transform hover:scale-105 transition-transform duration-300">
               <img 
-                src={theme === 'dark' ? logowhite : logodark} 
+                // src={theme === 'dark' ? logowhite : logodark} 
+                src={logowhite}
                 alt="Noor Bakers Logo" 
                 className="h-16 w-auto mx-auto md:mx-0"
               />
