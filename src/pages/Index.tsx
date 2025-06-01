@@ -9,6 +9,13 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import logodark from "/Mediamodifier-Design (4) (1).svg";
 import logowhite from "/Mediamodifier-Design (5) (1).svg";
+import heropic from "../assets/heropic.svg";
+import cookies from "../assets/cookies.svg";
+import image1 from "../assets/Screenshot 2025-06-02 010620.png";
+
+
+
+
 
 
 const Index = () => {
@@ -97,90 +104,29 @@ const Index = () => {
         {/* Hero Background Image */}
         <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
           <img 
-            src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" 
+            src={heropic} 
             alt="Bakery hero" 
             className="w-full h-full object-cover"
           />
-          <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? 'bg-[#221F26]/70' : 'bg-[#FFFCF7]/60'}`}></div>
+          <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? '' : ''}`}></div>
         </div>
         
-        {/* Animated Pastry Elements floating in from sides */}
-        <div className="absolute -left-20 top-1/4 opacity-70 animate-slide-in-left">
-          <img 
-            src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" 
-            alt="Floating pastry" 
-            className="w-64 h-64 object-contain rounded-full rotate-12 shadow-xl" 
-          />
-        </div>
-        <div className="absolute -right-20 top-1/3 opacity-70 animate-slide-in-right" style={{ animationDelay: "0.3s" }}>
-          <img 
-            src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" 
-            alt="Floating cake" 
-            className="w-64 h-64 object-contain rounded-full -rotate-12 shadow-xl" 
-          />
-        </div>
+      
         
         <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
           <div className="max-w-2xl mx-auto text-center py-12 md:py-20">
-            <div className="slide-in">
-              <span className="inline-block px-4 py-1 rounded-full text-sm font-medium bg-[#c39d5e]/30 text-[#c39d5e] mb-4">
-                Artisan Bakery Excellence
-              </span>
-            </div>
-            <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} leading-tight mb-6 fade-in`}>
-              <span className="text-[#c39d5e]">Sweet</span> Moments <span className="text-[#c39d5e]">Begin</span> Here
+           
+            <h1 className={`text-4xl md:text-4xl lg:text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} leading-tight mb-6 fade-in`}>
+              Something Delicious is Baking... 
             </h1>
-            <p className={`${theme === 'dark' ? 'text-gray-100' : 'text-[#403E43]'} text-lg md:text-xl mb-8 fade-in delay-200 max-w-xl mx-auto`}>
-              Experience the magic of tradition blended with innovation in every handcrafted delight for every occasion
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in delay-300">
-              
-              <NavLink to={"/services"}>
-
-              <Button className="bg-[#c39d5e] hover:bg-[#b38d4e] text-white rounded-md px-6 py-3 transition-transform hover:scale-105 animate-pulse-gold">
-                Services <ShoppingBag className="ml-1 h-4 w-4" />
-              </Button>
-
-              </NavLink>
-              <NavLink to={"/about"}>
-
-
-              <Button variant="outline" className={`border-[#c39d5e] text-[#c39d5e] rounded-md px-6 py-3 ${theme === 'dark' ? 'hover:bg-[#c39d5e]/20' : ''} transition-transform hover:scale-105`}>
-                About us <ChevronRight className="ml-1 h-4 w-4" />
-              </Button>
-              </NavLink>
-            </div>
+            
+            
             
             {/* Enhanced social proof with awards */}
-            <div className="mt-10 flex items-center gap-3 justify-center slide-in delay-400">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-white overflow-hidden bg-[#c39d5e]">
-                    <img 
-                      src={`https://i.pravatar.cc/100?img=${i+10}`} 
-                      alt="Customer" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-              <div className={`text-sm ${theme === 'dark' ? 'text-gray-100' : 'text-[#403E43]'}`}>
-                <span className="font-bold text-[#c39d5e]">4.9/5 </span> 
-                <span>from 2k+ happy customers</span>
-              </div>
-              <div className="flex items-center ml-2">
-                <Star className="h-4 w-4 text-[#c39d5e] fill-[#c39d5e]" />
-                <Star className="h-4 w-4 text-[#c39d5e] fill-[#c39d5e]" />
-                <Star className="h-4 w-4 text-[#c39d5e] fill-[#c39d5e]" />
-                <Star className="h-4 w-4 text-[#c39d5e] fill-[#c39d5e]" />
-                <Star className="h-4 w-4 text-[#c39d5e] fill-[#c39d5e]" />
-              </div>
-            </div>
+           
             
             {/* Awards badge */}
-            <div className="mt-6 flex justify-center slide-in delay-500">
-              
-            </div>
+           
           </div>
         </div>
       </section>
@@ -189,26 +135,32 @@ const Index = () => {
       <section className={`py-16 ${theme === 'dark' ? 'bg-[#1e1c22]' : 'bg-[#F1F1F1]'} transition-colors duration-300 overflow-hidden`}>
         <div className="max-w-7xl mx-auto px-6 md:px-10 relative">
           {/* Animated pastry floating in the background */}
-          <div className="absolute -right-20 top-20 opacity-20 float">
+          {/* <div className="absolute -right-20 top-20 opacity-20 float">
             <img 
               src="https://images.unsplash.com/photo-1600617953089-c42ac12fe5db?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
               alt="Floating pastry" 
               className="w-64 h-64 object-contain rounded-full rotate-12" 
             />
-          </div>
+          </div> */}
           
           <div className="text-center mb-12 animate-on-scroll" style={{ transition: 'all 0.6s ease-out' }}>
             <div className="inline-block mb-2">
-              <span className={`inline-block px-4 py-1 rounded-full text-sm font-medium ${theme === 'dark' ? 'bg-[#c39d5e]/30' : 'bg-[#c39d5e]/20'} text-[#c39d5e]`}>Why Choose Us</span>
+              <h1 className={`inline-block px-4 py-1 rounded-full  text-3xl  text-[#c39d5e] font-bold `}>About Us</h1>
             </div>
             <h2 className={`text-3xl md:text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} mb-4`}>
               <span className="text-[#c39d5e]">Handcrafted Delights</span> For Every Occasion
             </h2>
-            <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-[#8A898C]'} max-w-2xl mx-auto`}>
-              Our commitment to quality ingredients and expert craftsmanship makes us the premier destination for your sweet cravings
-            </p>
+            <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-[#8A898C]'} max-w-2xl mx-auto text-center`}>
+At Noor Bakers & Sweets, we believe every bite should bring joy. Founded with a passion for quality and tradition,
+we’re here to serve freshly baked goods, handcrafted cakes, and authentic sweets that make every moment special.
+
+Whether you're after a buttery biscuit with your chai, a custom cake for your celebration, or a box of classic mithai for someone you love
+we’ve got you covered. Every item we create is made with care, premium ingredients, and that unmistakable Noor touch.
+
+Rooted in tradition, inspired by flavour, and baked for today
+Noor Bakers & Sweets is your go-to spot for taste that speaks for itself.            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { 
                 icon: <CakeSlice className="w-8 h-8 text-[#c39d5e]" />, 
@@ -238,15 +190,78 @@ const Index = () => {
                 <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-[#8A898C]'}`}>{feature.description}</p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
 
+
+   <div className=" inset-0 w-full h-full overflow-hidden z-0">
+          <img 
+            src={image1} 
+            alt="Bakery hero" 
+            className="w-full h-full object-cover"
+          />
+          <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? '' : ""}`}></div>
+        </div>
+
+       <div className=" inset-0 w-full h-full overflow-hidden z-0">
+          <img 
+            src={cookies} 
+            alt="Bakery hero" 
+            className="w-full h-full object-cover"
+          />
+          <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? '' : ""}`}></div>
+        </div>
+
+        <div className="relative overflow-hidden min-h-[50vh] flex items-center bg-gray-100 py-12">
+ <div className="max-w-4xl mx-auto px-6 md:px-10 text-center">
+  <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">We're Hiring! Join Our Team</h2>
+  <h3 className="text-2xl md:text-3xl font-semibold text-gray-600 mb-8">Apply Now</h3>
+  
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-2xl mx-auto">
+    <div className="space-y-4">
+      <div>
+        <p className="block text-sm font-medium text-gray-700">Full Name: [Your Full Name]</p>
+      </div>
+      <div>
+        <p className="block text-sm font-medium text-gray-700">Phone Number: [Your Phone Number]</p>
+      </div>
+      <div>
+        <p className="block text-sm font-medium text-gray-700">Email Address: [Your Email Address]</p>
+      </div>
+      <div>
+        <p className="block text-sm font-medium text-gray-700">Position Applying For: [e.g., Baker, Front Counter Staff, Kitchen Assistant, Delivery Driver, etc]</p>
+      </div>
+      <div>
+        <p className="block text-sm font-medium text-gray-700">Are You Eligible to Work in the UK?: [Yes/No]</p>
+      </div>
+      <div>
+        <p className="block text-sm font-medium text-gray-700">Availability: [Days & Hours Available]</p>
+      </div>
+    </div>
+
+    <div className="space-y-4">
+      <div>
+        <p className="block text-sm font-medium text-gray-700">Full-Time / Part-Time: [Days & Hours Available]</p>
+      </div>
+      <div>
+        <p className="block text-sm font-medium text-gray-700">Work Experience: [Your Work Experience]</p>
+      </div>
+      <div>
+        <p className="block text-sm font-medium text-gray-700">Start Date Availability: [Your Start Date]</p>
+      </div>
+      <div>
+        <p className="block text-sm font-medium text-gray-700">Upload CV: [Attach Your CV Here]</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
       {/* Best Sellers Section */}
-      <section className={`py-16 ${theme === 'dark' ? 'bg-[#2d2a33]' : 'bg-white'} transition-colors duration-300 overflow-hidden`}>
+      {/* <section className={`py-16 ${theme === 'dark' ? 'bg-[#2d2a33]' : 'bg-white'} transition-colors duration-300 overflow-hidden`}>
         <div className="max-w-7xl mx-auto px-6 md:px-10 relative">
-          {/* Animated bakery elements floating */}
-          <div className="absolute -left-16 bottom-20 opacity-20 float">
+           <div className="absolute -left-16 bottom-20 opacity-20 float">
             <img 
               src="https://picsum.photos/seed/cake1/300/300" 
               alt="Floating cake" 
@@ -293,10 +308,10 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Special Occasions Section */}
-      <section className={`py-20 ${theme === 'dark' ? 'bg-[#1e1c22]' : 'bg-[#F9F8FF]'} transition-colors duration-300`}>
+      {/* <section className={`py-20 ${theme === 'dark' ? 'bg-[#1e1c22]' : 'bg-[#F9F8FF]'} transition-colors duration-300`}>
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="text-center mb-12 animate-on-scroll">
             <span className={`inline-block px-4 py-1 rounded-full text-sm font-medium ${theme === 'dark' ? 'bg-[#c39d5e]/30' : 'bg-[#c39d5e]/20'} text-[#c39d5e] mb-4`}>Special Occasions</span>
@@ -345,10 +360,10 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials Section */}
-      <section className={`py-20 ${theme === 'dark' ? 'bg-[#2d2a33]' : 'bg-white'} transition-colors duration-300`}>
+      {/* <section className={`py-20 ${theme === 'dark' ? 'bg-[#2d2a33]' : 'bg-white'} transition-colors duration-300`}>
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="text-center mb-12 animate-on-scroll">
             <span className={`inline-block px-4 py-1 rounded-full text-sm font-medium ${theme === 'dark' ? 'bg-[#c39d5e]/30' : 'bg-[#c39d5e]/20'} text-[#c39d5e] mb-4`}>Testimonials</span>
@@ -399,10 +414,10 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Instagram Feed Section */}
-      <section className={`py-20 ${theme === 'dark' ? 'bg-[#1e1c22]' : 'bg-[#F9F8FF]'} transition-colors duration-300`}>
+      {/* <section className={`py-20 ${theme === 'dark' ? 'bg-[#1e1c22]' : 'bg-[#F9F8FF]'} transition-colors duration-300`}>
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="text-center mb-12 animate-on-scroll">
             <span className={`inline-block px-4 py-1 rounded-full text-sm font-medium ${theme === 'dark' ? 'bg-[#c39d5e]/30' : 'bg-[#c39d5e]/20'} text-[#c39d5e] mb-4`}>@noorbakery</span>
@@ -430,10 +445,10 @@ const Index = () => {
   ))}
 </div>;
         </div>
-      </section>
+      </section> */}
 
       {/* Awards and Recognition */}
-      <section className={`py-20 ${theme === 'dark' ? 'bg-[#2d2a33]' : 'bg-white'} transition-colors duration-300`}>
+      {/* <section className={`py-20 ${theme === 'dark' ? 'bg-[#2d2a33]' : 'bg-white'} transition-colors duration-300`}>
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="text-center mb-12 animate-on-scroll">
             <span className={`inline-block px-4 py-1 rounded-full text-sm font-medium ${theme === 'dark' ? 'bg-[#c39d5e]/30' : 'bg-[#c39d5e]/20'} text-[#c39d5e] mb-4`}>Recognition</span>
@@ -460,7 +475,7 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>

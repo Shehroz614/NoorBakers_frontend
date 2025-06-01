@@ -43,19 +43,19 @@ const Navbar = () => {
           </>}
           </div>
           <div className="hidden md:flex space-x-6 items-center">
-            <Link to="/" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>Home</Link>
+            {/* <Link to="/" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>Home</Link>
             <Link to="/services" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>Services</Link>
             <Link to="/about" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>About</Link>
-            <Link to="/contact" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>Contact</Link>
+            <Link to="/contact" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>Contact</Link> */}
             <ThemeToggle />
           </div>
           <div className="md:hidden flex items-center gap-4">
             <ThemeToggle />
-            <button onClick={toggleMobileMenu} className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e]`}>
+            {/* <button onClick={toggleMobileMenu} className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e]`}>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
-            </button>
+            </button> */}
           </div>
         </div>
         <MobileMenu isOpen={mobileMenuOpen} toggleMenu={toggleMobileMenu} />
