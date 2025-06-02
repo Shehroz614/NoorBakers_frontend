@@ -116,7 +116,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
           <div className=" mx-auto text-center">
 
-            <h1 className={`text-3xl md:text-4xl lg:text-6xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} leading-tight mb-6 fade-in`}>
+            <h1 className={`text-3xl md:text-4xl lg:text-7xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} leading-tight mb-6 fade-in`}>
               Something Delicious is Baking...
             </h1>
 
