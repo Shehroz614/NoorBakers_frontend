@@ -14,10 +14,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className={`relative ${theme === 'dark' ? 'bg-[#161523]' : 'bg-[#161523]'} text-white py-10 transition-colors duration-300`}>
+    <footer className={`relative ${theme === 'dark' ? 'bg-[#161523]' : 'bg-[#161523]'} text-white py-16 transition-colors duration-300`}>
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
           {/* Left Column: Logo and Tagline */}
           <div className="text-center md:text-left">
             <div className="mb-3 flex flex-col justify-center items-center md:justify-start">
@@ -39,25 +39,23 @@ const Footer = () => {
           {/* Right Column: Contact Info and Social Links */}
           <div className="mx-auto">
 
-          <div className=" flex flex-col items-start justify-start">
-            <h4 className="text-lg font-semibold mb-3 text-[#c39d5e] font-serif">Contact Info</h4>
-              <div className="flex items-center mb-2">
-
-                <MapPin className="h-5 w-5 mr-2  text-[#c39d5e]  mt-1 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-gray-400  text-xs font-sans text-left leading-tight">
+          <div className=" flex flex-col items-start justify-start space-y-6">
+            <h4 className="text-lg font-semibold mb-4 text-[#c39d5e] font-serif">Contact Info</h4>
+              <div className="flex items-start mb-4">
+                <MapPin className="h-5 w-5 mr-3 text-[#c39d5e] mt-1 group-hover:scale-110 transition-transform duration-300" />
+                <span className="text-gray-400 text-sm font-sans text-left leading-relaxed">
                   Noor Bakers & Sweets,<br />
                   Peace Mills, Hopbine Avenue,<br />
                   Bradford BD5 8ER
                 </span>
               </div>
-              <div className="flex items-center ">
-
-                <Mail className="h-5 w-5 mr-2  text-[#c39d5e] group-hover:scale-110 transition-transform duration-300" />
-                <a href="mailto:info@noorbakersandsweets.com" className="text-gray-400 text-xs font-sans hover:text-[#c39d5e] text-left transition-colors duration-300">
+              <div className="flex items-center mb-6">
+                <Mail className="h-5 w-5 mr-3 text-[#c39d5e] group-hover:scale-110 transition-transform duration-300" />
+                <a href="mailto:info@noorbakersandsweets.com" className="text-gray-400 text-sm font-sans hover:text-[#c39d5e] text-left transition-colors duration-300">
                   info@noorbakersandsweets.com
                 </a>
               </div>
-            <h4 className="text-2xl font-semibold mb-3 text-[#c39d5e] ">"Stay Connected!"</h4>
+            <h4 className="text-2xl font-semibold mb-4 text-[#c39d5e] ">"Stay Connected!"</h4>
             <div className="flex items-center justify-center  space-x-3">
               {[
                 { icon: <Facebook className="h-5 w-5" />, href: "#" },

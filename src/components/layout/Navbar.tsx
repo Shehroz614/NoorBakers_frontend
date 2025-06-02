@@ -31,9 +31,9 @@ const Navbar = () => {
 
   return (
     <nav className={`${theme === 'dark' ? 'bg-[#2d2a33] border-[#3a3741]' : 'bg-white border-[#FEC6A1]/20'} 
-        border-b py-4 px-6 md:px-10 sticky top-0 z-50 shadow-sm transition-all duration-300 
+        border-b py-4 px-2 md:px-4 sticky top-0 z-50 shadow-sm transition-all duration-300 
         ${visible ? 'navbar-visible' : 'navbar-hidden'}`}>
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="mx-auto flex justify-between items-center">
           <div className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} text-2xl md:text-3xl font-bold`}>
           {theme === 'dark' ? <>
             <img src={logodark} alt="" className="w-40 h-16" /> 

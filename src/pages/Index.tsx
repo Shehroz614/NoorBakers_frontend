@@ -40,30 +40,30 @@ const Index = () => {
         }
       });
     }, { threshold: 0.1 });
-    
+
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
       observer.observe(el);
     });
-    
+
     // Handle navbar visibility on scroll
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
       const isScrolledDown = prevScrollPos < currentScrollPos;
       const isScrolledUp = prevScrollPos > currentScrollPos;
       const isAtTop = currentScrollPos < 10;
-      
+
       // Only hide navbar when scrolling down and not at the top
       if (isScrolledDown && !isAtTop && currentScrollPos > 100) {
         setVisible(false);
       } else if (isScrolledUp || isAtTop) {
         setVisible(true);
       }
-      
+
       setPrevScrollPos(currentScrollPos);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
-    
+
     return () => {
       document.querySelectorAll('.animate-on-scroll').forEach(el => {
         observer.unobserve(el);
@@ -88,7 +88,7 @@ const Index = () => {
     "https://plus.unsplash.com/premium_photo-1681826507324-0b3c43928753?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1623246123320-0d6636755796?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1553452118-621e1f860f43?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-   "https://images.unsplash.com/photo-1572897306051-abf270479682?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1572897306051-abf270479682?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://plus.unsplash.com/premium_photo-1681826507324-0b3c43928753?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1623246123320-0d6636755796?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1553452118-621e1f860f43?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -97,36 +97,36 @@ const Index = () => {
   return (
     <div className={`min-h-screen ${theme === 'dark' ? 'bg-[#221F26] text-white' : 'bg-[#FFFCF7]'}`}>
       {/* Navigation - Modified to hide/show on scroll */}
-      <Navbar/>
+      <Navbar />
 
       {/* Redesigned Hero Section with large background image */}
       <section className="relative overflow-hidden min-h-[90vh] flex items-center">
         {/* Hero Background Image */}
         <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
-          <img 
-            src={heropic} 
-            alt="Bakery hero" 
-            className="w-full h-full object-cover"
+          <img
+            src={heropic}
+            alt="Bakery hero"
+            className="w-full h-full object-cover opacity-50"
           />
           <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? '' : ''}`}></div>
         </div>
-        
-      
-        
+
+
+
         <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
-          <div className="max-w-2xl mx-auto text-center py-12 md:py-20">
-           
-            <h1 className={`text-4xl md:text-4xl lg:text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} leading-tight mb-6 fade-in`}>
-              Something Delicious is Baking... 
+          <div className=" mx-auto text-center">
+
+            <h1 className={`text-3xl md:text-4xl lg:text-6xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} leading-tight mb-6 fade-in`}>
+              Something Delicious is Baking...
             </h1>
-            
-            
-            
+
+
+
             {/* Enhanced social proof with awards */}
-           
-            
+
+
             {/* Awards badge */}
-           
+
           </div>
         </div>
       </section>
@@ -142,23 +142,23 @@ const Index = () => {
               className="w-64 h-64 object-contain rounded-full rotate-12" 
             />
           </div> */}
-          
+
           <div className="text-center mb-12 animate-on-scroll" style={{ transition: 'all 0.6s ease-out' }}>
             <div className="inline-block mb-2">
-            <h2 className={`text-3xl md:text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} mb-4`}>
-              <span className="text-[#c39d5e]">Handcrafted Delights</span> For Every Occasion
-            </h2>
+              <h2 className={`text-3xl md:text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} mb-4`}>
+                <span className="text-[#c39d5e]">Handcrafted Delights</span> For Every Occasion
+              </h2>
               <h1 className={`inline-block px-4 py-1 rounded-full  text-3xl  text-[#c39d5e] font-bold `}>About Us</h1>
             </div>
             <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-[#8A898C]'}  text-center`}>
-At Noor Bakers & Sweets, we believe every bite should bring joy. Founded with a passion for quality and tradition,
-we’re here to serve freshly baked goods, handcrafted cakes, and authentic sweets that make every moment special. <br />
+              At Noor Bakers & Sweets, we believe every bite should bring joy. Founded with a passion for quality and tradition,
+              we're here to serve freshly baked goods, handcrafted cakes, and authentic sweets that make every moment special. <br />
 
-Whether you're after a buttery biscuit with your chai, a custom cake for your celebration, or a box of classic mithai for someone you love
-we’ve got you covered. Every item we create is made with care, premium ingredients, and that unmistakable Noor touch. <br />
+              Whether you're after a buttery biscuit with your chai, a custom cake for your celebration, or a box of classic mithai for someone you love
+              we've got you covered. Every item we create is made with care, premium ingredients, and that unmistakable Noor touch. <br />
 
-Rooted in tradition, inspired by flavour, and baked for today
-Noor Bakers & Sweets is your go-to spot for taste that speaks for itself.            </p>
+              Rooted in tradition, inspired by flavour, and baked for today
+              Noor Bakers & Sweets is your go-to spot for taste that speaks for itself.            </p>
           </div>
           {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -195,68 +195,209 @@ Noor Bakers & Sweets is your go-to spot for taste that speaks for itself.       
       </section>
 
 
-   <div className=" inset-0 w-full h-full overflow-hidden z-0">
-          <img 
-            src={image1} 
-            alt="Bakery hero" 
-            className="w-full h-full object-cover"
-          />
-          <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? '' : ""}`}></div>
+      <div className=" inset-0 w-full h-full overflow-hidden z-0">
+        <img
+          src={image1}
+          alt="Bakery hero"
+          className="w-full h-full object-cover"
+        />
+        <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? "" : ""}`}></div>
+      </div>
+
+      <div className=" inset-0 w-full h-full overflow-hidden z-0">
+        <img
+          src={cookies}
+          alt="Bakery hero"
+          className="w-full h-full object-cover opacity-50"
+        />
+        <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? "" : ""}`}></div>
+      </div>
+
+      <div className="relative overflow-hidden min-h-[90vh] flex items-center bg-gradient-to-b from-white via-[#FEF7CD]/10 to-white py-24">
+
+        <div className="w-4/5  mx-auto px-6 md:px-10 relative z-10">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1 rounded-full text-sm font-medium bg-[#c39d5e]/10 text-[#c39d5e] mb-4 animate-fade-in">Join Our Team</span>
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">We're Hiring!</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Join our passionate team and be part of creating delightful moments for our customers</p>
+          </div>
+
+          <form className="max-w-4xl mx-auto space-y-8 bg-white/80 backdrop-blur-lg p-12 rounded-2xl shadow-xl border border-gray-100">
+            {/* Personal Information Section */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                <span className="w-8 h-8 rounded-full bg-[#c39d5e]/10 flex items-center justify-center mr-3">
+                  <svg className="w-4 h-4 text-[#c39d5e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                </span>
+                Personal Information
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-2 group">
+                  <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 group-focus-within:text-[#c39d5e] transition-colors">Full Name</label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                <div className="space-y-2 group">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 group-focus-within:text-[#c39d5e] transition-colors">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                    placeholder="Enter your email address"
+                  />
+                </div>
+
+                <div className="space-y-2 group">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 group-focus-within:text-[#c39d5e] transition-colors">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+
+                <div className="space-y-2 group">
+                  <label htmlFor="location" className="block text-sm font-medium text-gray-700 group-focus-within:text-[#c39d5e] transition-colors">Location</label>
+                  <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                    placeholder="Your city, country"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Job Details Section */}
+            <div className="space-y-6 pt-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                <span className="w-8 h-8 rounded-full bg-[#c39d5e]/10 flex items-center justify-center mr-3">
+                  <svg className="w-4 h-4 text-[#c39d5e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </span>
+                Job Details
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-2 group">
+                  <label htmlFor="position" className="block text-sm font-medium text-gray-700 group-focus-within:text-[#c39d5e] transition-colors">Position</label>
+                  <select
+                    id="position"
+                    name="position"
+                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm appearance-none cursor-pointer"
+                  >
+                    <option value="">Select a position</option>
+                    <option value="baker">Baker</option>
+                    <option value="counter">Front Counter Staff</option>
+                    <option value="kitchen">Kitchen Assistant</option>
+                    <option value="driver">Delivery Driver</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2 group">
+                  <label htmlFor="employmentType" className="block text-sm font-medium text-gray-700 group-focus-within:text-[#c39d5e] transition-colors">Employment Type</label>
+                  <select
+                    id="employmentType"
+                    name="employmentType"
+                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm appearance-none cursor-pointer"
+                  >
+                    <option value="">Select employment type</option>
+                    <option value="fullTime">Full-Time</option>
+                    <option value="partTime">Part-Time</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2 group">
+                  <label htmlFor="workEligibility" className="block text-sm font-medium text-gray-700 group-focus-within:text-[#c39d5e] transition-colors">Work Eligibility</label>
+                  <select
+                    id="workEligibility"
+                    name="workEligibility"
+                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm appearance-none cursor-pointer"
+                  >
+                    <option value="">Are you eligible to work in the UK?</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2 group">
+                  <label htmlFor="startDate" className="block text-sm font-medium text-gray-700 group-focus-within:text-[#c39d5e] transition-colors">Available Start Date</label>
+                  <input
+                    type="date"
+                    id="startDate"
+                    name="startDate"
+                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Experience Section */}
+            <div className="space-y-6 pt-6">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                <span className="w-8 h-8 rounded-full bg-[#c39d5e]/10 flex items-center justify-center mr-3">
+                  <svg className="w-4 h-4 text-[#c39d5e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </span>
+                Experience & CV
+              </h3>
+
+              <div className="space-y-6">
+                <div className="space-y-2 group">
+                  <label htmlFor="experience" className="block text-sm font-medium text-gray-700 group-focus-within:text-[#c39d5e] transition-colors">Work Experience</label>
+                  <textarea
+                    id="experience"
+                    name="experience"
+                    rows={4}
+                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm resize-none"
+                    placeholder="Tell us about your relevant work experience"
+                  ></textarea>
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="cv" className="block text-sm font-medium text-gray-700">Upload CV</label>
+                  <div className="flex items-center justify-center w-full">
+                    <label htmlFor="cv" className="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-200 border-dashed rounded-xl cursor-pointer hover:bg-gray-50/50 transition-all duration-200 group">
+                      <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                        <svg className="w-10 h-10 mb-4 text-gray-400 group-hover:text-[#c39d5e] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                        </svg>
+                        <p className="mb-2 text-sm text-gray-500 group-hover:text-gray-600"><span className="font-semibold">Click to upload</span> or drag and drop</p>
+                        <p className="text-xs text-gray-500 group-hover:text-gray-600">PDF, DOC, DOCX (MAX. 2MB)</p>
+                      </div>
+                      <input id="cv" type="file" className="hidden" accept=".pdf,.doc,.docx" />
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex justify-end pt-8">
+              <button
+                type="submit"
+                className="px-8 py-4 bg-[#c39d5e] text-white rounded-xl hover:bg-[#b38d4e] transition-all duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-[#c39d5e] transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+              >
+                Submit Application
+              </button>
+            </div>
+          </form>
         </div>
-
-       <div className=" inset-0 w-full h-full overflow-hidden z-0">
-          <img 
-            src={cookies} 
-            alt="Bakery hero" 
-            className="w-full h-full object-cover"
-          />
-          <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? '' : ""}`}></div>
-        </div>
-
-        <div className="relative overflow-hidden min-h-[50vh] flex items-center bg-white py-12">
- <div className="max-w-4xl mx-auto px-6 md:px-10 text-center">
-  <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">We're Hiring! Join Our Team</h2>
-  <h3 className="text-2xl md:text-3xl font-semibold text-gray-600 mb-8">Apply Now</h3>
-  
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-2xl mx-auto">
-    <div className="space-y-4">
-      <div>
-        <p className="block text-sm font-medium text-gray-700">Full Name: [Your Full Name]</p>
       </div>
-      <div>
-        <p className="block text-sm font-medium text-gray-700">Phone Number: [Your Phone Number]</p>
-      </div>
-      <div>
-        <p className="block text-sm font-medium text-gray-700">Email Address: [Your Email Address]</p>
-      </div>
-      <div>
-        <p className="block text-sm font-medium text-gray-700">Position Applying For: [e.g., Baker, Front Counter Staff, Kitchen Assistant, Delivery Driver, etc]</p>
-      </div>
-      <div>
-        <p className="block text-sm font-medium text-gray-700">Are You Eligible to Work in the UK?: [Yes/No]</p>
-      </div>
-      <div>
-        <p className="block text-sm font-medium text-gray-700">Availability: [Days & Hours Available]</p>
-      </div>
-    </div>
-
-    <div className="space-y-4">
-      <div>
-        <p className="block text-sm font-medium text-gray-700">Full-Time / Part-Time: [Days & Hours Available]</p>
-      </div>
-      <div>
-        <p className="block text-sm font-medium text-gray-700">Work Experience: [Your Work Experience]</p>
-      </div>
-      <div>
-        <p className="block text-sm font-medium text-gray-700">Start Date Availability: [Your Start Date]</p>
-      </div>
-      <div>
-        <p className="block text-sm font-medium text-gray-700">Upload CV: [Attach Your CV Here]</p>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 
       {/* Best Sellers Section */}
       {/* <section className={`py-16 ${theme === 'dark' ? 'bg-[#2d2a33]' : 'bg-white'} transition-colors duration-300 overflow-hidden`}>
