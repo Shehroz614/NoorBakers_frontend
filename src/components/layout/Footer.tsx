@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { MapPin, Mail, Facebook, Instagram,  ArrowUp } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import logowhite from "@/assets/Mediamodifier-Design (5) (1).svg";
+import footerlogo from "@/assets/image copy 2.png";
+
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -12,19 +14,20 @@ const Footer = () => {
   };
 
   return (
-    <footer className={`relative ${theme === 'dark' ? 'bg-[#1a181d]' : 'bg-[#221F26]'} text-white py-10 transition-colors duration-300`}>
+    <footer className={`relative ${theme === 'dark' ? 'bg-[#161523]' : 'bg-[#161523]'} text-white py-10 transition-colors duration-300`}>
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
           {/* Left Column: Logo and Tagline */}
           <div className="text-center md:text-left">
-            <div className="mb-3 flex flex-col justify-center md:justify-start">
+            <div className="mb-3 flex flex-col justify-center items-center md:justify-start">
               <img 
-                src={logowhite}
+                src={footerlogo}
                 alt="Noor Bakers Logo" 
-                className="h-10 w-auto mx-auto md:mx-0"
+                
+                className="h-23 w-20  mx-auto md:mx-0"
               />
-            <p className="text-gray-300 text-2xl text-center italic font-serif">
+            <p className="text-gray-300 text-2xl text-center ">
               Happiness'  <br />one bite at a time.
             </p>
             </div>
@@ -41,7 +44,7 @@ const Footer = () => {
               <div className="flex items-center mb-2">
 
                 <MapPin className="h-5 w-5 mr-2  text-[#c39d5e]  mt-1 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-gray-400  text-sm font-sans text-left leading-tight">
+                <span className="text-gray-400  text-xs font-sans text-left leading-tight">
                   Noor Bakers & Sweets,<br />
                   Peace Mills, Hopbine Avenue,<br />
                   Bradford BD5 8ER
@@ -50,7 +53,7 @@ const Footer = () => {
               <div className="flex items-center ">
 
                 <Mail className="h-5 w-5 mr-2  text-[#c39d5e] group-hover:scale-110 transition-transform duration-300" />
-                <a href="mailto:info@noorbakersandsweets.com" className="text-gray-400 text-sm font-sans hover:text-[#c39d5e] text-left transition-colors duration-300">
+                <a href="mailto:info@noorbakersandsweets.com" className="text-gray-400 text-xs font-sans hover:text-[#c39d5e] text-left transition-colors duration-300">
                   info@noorbakersandsweets.com
                 </a>
               </div>

@@ -132,7 +132,7 @@ const Index = () => {
       </section>
 
       {/* Features Section - Added "Handcrafted Delights" text here */}
-      <section className={`py-16 ${theme === 'dark' ? 'bg-[#1e1c22]' : 'bg-[#F1F1F1]'} transition-colors duration-300 overflow-hidden`}>
+      <section className={`py-16 ${theme === 'dark' ? 'bg-[#1e1c22]' : 'bg-white'} transition-colors duration-300 overflow-hidden`}>
         <div className="max-w-7xl mx-auto px-6 md:px-10 relative">
           {/* Animated pastry floating in the background */}
           {/* <div className="absolute -right-20 top-20 opacity-20 float">
@@ -145,17 +145,17 @@ const Index = () => {
           
           <div className="text-center mb-12 animate-on-scroll" style={{ transition: 'all 0.6s ease-out' }}>
             <div className="inline-block mb-2">
-              <h1 className={`inline-block px-4 py-1 rounded-full  text-3xl  text-[#c39d5e] font-bold `}>About Us</h1>
-            </div>
             <h2 className={`text-3xl md:text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} mb-4`}>
               <span className="text-[#c39d5e]">Handcrafted Delights</span> For Every Occasion
             </h2>
-            <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-[#8A898C]'} max-w-2xl mx-auto text-center`}>
+              <h1 className={`inline-block px-4 py-1 rounded-full  text-3xl  text-[#c39d5e] font-bold `}>About Us</h1>
+            </div>
+            <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-[#8A898C]'}  text-center`}>
 At Noor Bakers & Sweets, we believe every bite should bring joy. Founded with a passion for quality and tradition,
-we’re here to serve freshly baked goods, handcrafted cakes, and authentic sweets that make every moment special.
+we’re here to serve freshly baked goods, handcrafted cakes, and authentic sweets that make every moment special. <br />
 
 Whether you're after a buttery biscuit with your chai, a custom cake for your celebration, or a box of classic mithai for someone you love
-we’ve got you covered. Every item we create is made with care, premium ingredients, and that unmistakable Noor touch.
+we’ve got you covered. Every item we create is made with care, premium ingredients, and that unmistakable Noor touch. <br />
 
 Rooted in tradition, inspired by flavour, and baked for today
 Noor Bakers & Sweets is your go-to spot for taste that speaks for itself.            </p>
@@ -213,7 +213,7 @@ Noor Bakers & Sweets is your go-to spot for taste that speaks for itself.       
           <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? '' : ""}`}></div>
         </div>
 
-        <div className="relative overflow-hidden min-h-[50vh] flex items-center bg-gray-100 py-12">
+        <div className="relative overflow-hidden min-h-[50vh] flex items-center bg-white py-12">
  <div className="max-w-4xl mx-auto px-6 md:px-10 text-center">
   <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">We're Hiring! Join Our Team</h2>
   <h3 className="text-2xl md:text-3xl font-semibold text-gray-600 mb-8">Apply Now</h3>
