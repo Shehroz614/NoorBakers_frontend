@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { Toaster } from "sonner";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import About from "./pages/About";
@@ -14,6 +15,7 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
+        <Toaster position="top-right" richColors />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />

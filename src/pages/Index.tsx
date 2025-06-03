@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { CakeSlice, Coffee, Star, MapPin, Clock, Phone, ChevronRight, ShoppingBag, Award, Heart, Mail, Send, ArrowRight, MessageCircle, User } from "lucide-react";
+import { CakeSlice, Coffee, Star, MapPin, Clock, Phone, ChevronRight, ShoppingBag, Award, Heart, Mail, Send, ArrowRight, MessageCircle, User, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -12,6 +12,7 @@ import logowhite from "/Mediamodifier-Design (5) (1).svg";
 import heropic from "../assets/heropic.svg";
 import cookies from "../assets/cookies.svg";
 import image1 from "../assets/Screenshot 2025-06-02 010620.png";
+import { toast } from "sonner";
 
 
 
@@ -26,6 +27,19 @@ const Index = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    location: "",
+    position: "",
+    employmentType: "",
+    workEligibility: "",
+    startDate: "",
+    experience: ""
+  });
+  const [cvFile, setCvFile] = useState<File | null>(null);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -72,15 +86,72 @@ const Index = () => {
     };
   }, [prevScrollPos]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setCvFile(e.target.files[0]);
+    }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      fullName: "",
+      email: "",
+      phone: "",
+      location: "",
+      position: "",
+      employmentType: "",
+      workEligibility: "",
+      startDate: "",
+      experience: ""
+    });
+    setCvFile(null);
+    // Reset the file input
+    const fileInput = document.getElementById('cv') as HTMLInputElement;
+    if (fileInput) fileInput.value = '';
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", { name, email, message });
-    // Reset form after submission
-    setName("");
-    setEmail("");
-    setMessage("");
-    // Show a success message (in a real app you'd use a toast notification)
-    alert("Thank you for your message! We'll get back to you soon.");
+    setIsSubmitting(true);
+
+    try {
+      const submitData = new FormData();
+      
+      // Append all form fields
+      Object.entries(formData).forEach(([key, value]) => {
+        submitData.append(key, value);
+      });
+
+      // Append CV file if exists
+      if (cvFile) {
+        submitData.append('cv', cvFile);
+      }
+
+      const response = await fetch('https://api.noorbakersandsweets.co.uk/api/email/send-form', {
+        method: 'POST',
+        body: submitData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit application');
+      }
+
+      toast.success('Application submitted successfully! We will get back to you soon.');
+      resetForm();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('Failed to submit application. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const instagramPosts = [
@@ -222,7 +293,7 @@ const Index = () => {
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">Join our passionate team and be part of creating delightful moments for our customers</p>
           </div>
 
-          <form className="max-w-4xl mx-auto space-y-8 bg-white/80 backdrop-blur-lg p-12 rounded-2xl shadow-xl border border-gray-100">
+          <form onSubmit={handleSubmit} className="max-w-4xl mx-auto space-y-8 bg-white/80 backdrop-blur-lg p-12 rounded-2xl shadow-xl border border-gray-100">
             {/* Personal Information Section */}
             <div className="space-y-6">
               <h3 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
@@ -241,6 +312,9 @@ const Index = () => {
                     type="text"
                     id="fullName"
                     name="fullName"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
                     placeholder="Enter your full name"
                   />
@@ -252,6 +326,9 @@ const Index = () => {
                     type="email"
                     id="email"
                     name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
                     placeholder="Enter your email address"
                   />
@@ -263,6 +340,9 @@ const Index = () => {
                     type="tel"
                     id="phone"
                     name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
                     placeholder="Enter your phone number"
                   />
@@ -274,6 +354,9 @@ const Index = () => {
                     type="text"
                     id="location"
                     name="location"
+                    value={formData.location}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
                     placeholder="Your city, country"
                   />
@@ -298,6 +381,9 @@ const Index = () => {
                   <select
                     id="position"
                     name="position"
+                    value={formData.position}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm appearance-none cursor-pointer"
                   >
                     <option value="">Select a position</option>
@@ -313,6 +399,9 @@ const Index = () => {
                   <select
                     id="employmentType"
                     name="employmentType"
+                    value={formData.employmentType}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm appearance-none cursor-pointer"
                   >
                     <option value="">Select employment type</option>
@@ -326,6 +415,9 @@ const Index = () => {
                   <select
                     id="workEligibility"
                     name="workEligibility"
+                    value={formData.workEligibility}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm appearance-none cursor-pointer"
                   >
                     <option value="">Are you eligible to work in the UK?</option>
@@ -340,6 +432,9 @@ const Index = () => {
                     type="date"
                     id="startDate"
                     name="startDate"
+                    value={formData.startDate}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
                   />
                 </div>
@@ -364,11 +459,14 @@ const Index = () => {
                     id="experience"
                     name="experience"
                     rows={4}
+                    value={formData.experience}
+                    onChange={handleInputChange}
                     className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm resize-none"
                     placeholder="Tell us about your relevant work experience"
                   ></textarea>
                 </div>
 
+                {/* CV Upload Section */}
                 <div className="space-y-2">
                   <label htmlFor="cv" className="block text-sm font-medium text-gray-700">Upload CV</label>
                   <div className="flex items-center justify-center w-full">
@@ -377,10 +475,22 @@ const Index = () => {
                         <svg className="w-10 h-10 mb-4 text-gray-400 group-hover:text-[#c39d5e] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                         </svg>
-                        <p className="mb-2 text-sm text-gray-500 group-hover:text-gray-600"><span className="font-semibold">Click to upload</span> or drag and drop</p>
+                        <p className="mb-2 text-sm text-gray-500 group-hover:text-gray-600">
+                          <span className="font-semibold">Click to upload</span> or drag and drop
+                        </p>
                         <p className="text-xs text-gray-500 group-hover:text-gray-600">PDF, DOC, DOCX (MAX. 2MB)</p>
+                        {cvFile && (
+                          <p className="mt-2 text-sm text-[#c39d5e]">Selected: {cvFile.name}</p>
+                        )}
                       </div>
-                      <input id="cv" type="file" className="hidden" accept=".pdf,.doc,.docx" />
+                      <input 
+                        id="cv" 
+                        type="file" 
+                        className="hidden" 
+                        accept=".pdf,.doc,.docx" 
+                        onChange={handleFileChange}
+                        required
+                      />
                     </label>
                   </div>
                 </div>
@@ -390,9 +500,17 @@ const Index = () => {
             <div className="flex justify-end pt-8">
               <button
                 type="submit"
-                className="px-8 py-4 bg-[#c39d5e] text-white rounded-xl hover:bg-[#b38d4e] transition-all duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-[#c39d5e] transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+                disabled={isSubmitting}
+                className="px-8 py-4 bg-[#c39d5e] text-white rounded-xl hover:bg-[#b38d4e] transition-all duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-[#c39d5e] transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center gap-2"
               >
-                Submit Application
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  'Submit Application'
+                )}
               </button>
             </div>
           </form>
