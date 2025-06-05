@@ -51,7 +51,7 @@ const Navbar = () => {
           </div>:<>
           <div className="flex items-center ">
 
-           <img src={logowhite} alt="" className="w-40 h-16" /> 
+           <img src={logowhite} alt="" className="h-16" /> 
                       <img src={NOOR_BAKERS_LOGO} alt="" className="w-40 h-16" /> 
 
           </div>

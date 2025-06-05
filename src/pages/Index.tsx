@@ -120,6 +120,20 @@ const Index = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Check if all fields are filled
+    const isAllFieldsFilled = Object.values(formData).every(value => value.trim() !== '');
+    
+    if (!isAllFieldsFilled) {
+      toast.error('Please fill in all fields');
+      return;
+    }
+
+    if (!cvFile) {
+      toast.error('Please upload your CV');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -285,27 +299,26 @@ const Index = () => {
       </div>
 
       <div className="relative overflow-hidden min-h-[90vh] flex items-center bg-gradient-to-b from-white via-[#FEF7CD]/10 to-white py-24">
-
-        <div className="w-4/5  mx-auto px-6 md:px-10 relative z-10">
-          <div className="text-center mb-16">
+        <div className="w-full md:w-4/5 mx-auto px-4 md:px-6 lg:px-10 relative z-10">
+          <div className="text-center mb-8 md:mb-16">
             <span className="inline-block px-4 py-1 rounded-full text-sm font-medium bg-[#c39d5e]/10 text-[#c39d5e] mb-4 animate-fade-in">Join Our Team</span>
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">We're Hiring!</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Join our passionate team and be part of creating delightful moments for our customers</p>
+            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-800 mb-4 md:mb-6">We're Hiring!</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">Join our passionate team and be part of creating delightful moments for our customers</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="max-w-4xl mx-auto space-y-8 bg-white/80 backdrop-blur-lg p-12 rounded-2xl shadow-xl border border-gray-100">
+          <form onSubmit={handleSubmit} className="max-w-4xl mx-auto space-y-6 md:space-y-8 bg-white/80 backdrop-blur-lg p-6 md:p-12 rounded-2xl shadow-xl border border-gray-100">
             {/* Personal Information Section */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                <span className="w-8 h-8 rounded-full bg-[#c39d5e]/10 flex items-center justify-center mr-3">
-                  <svg className="w-4 h-4 text-[#c39d5e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="space-y-4 md:space-y-6">
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4 md:mb-6 flex items-center">
+                <span className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#c39d5e]/10 flex items-center justify-center mr-2 md:mr-3">
+                  <svg className="w-3 h-3 md:w-4 md:h-4 text-[#c39d5e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </span>
                 Personal Information
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                 <div className="space-y-2 group">
                   <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 group-focus-within:text-[#c39d5e] transition-colors">Full Name</label>
                   <input
@@ -315,7 +328,7 @@ const Index = () => {
                     value={formData.fullName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                    className="w-full px-4 md:px-5 py-2.5 md:py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -329,7 +342,7 @@ const Index = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                    className="w-full px-4 md:px-5 py-2.5 md:py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
                     placeholder="Enter your email address"
                   />
                 </div>
@@ -343,7 +356,7 @@ const Index = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                    className="w-full px-4 md:px-5 py-2.5 md:py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
                     placeholder="Enter your phone number"
                   />
                 </div>
@@ -357,7 +370,7 @@ const Index = () => {
                     value={formData.location}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                    className="w-full px-4 md:px-5 py-2.5 md:py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
                     placeholder="Your city, country"
                   />
                 </div>
@@ -365,17 +378,17 @@ const Index = () => {
             </div>
 
             {/* Job Details Section */}
-            <div className="space-y-6 pt-6">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                <span className="w-8 h-8 rounded-full bg-[#c39d5e]/10 flex items-center justify-center mr-3">
-                  <svg className="w-4 h-4 text-[#c39d5e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="space-y-4 md:space-y-6 pt-4 md:pt-6">
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4 md:mb-6 flex items-center">
+                <span className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#c39d5e]/10 flex items-center justify-center mr-2 md:mr-3">
+                  <svg className="w-3 h-3 md:w-4 md:h-4 text-[#c39d5e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </span>
                 Job Details
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                 <div className="space-y-2 group">
                   <label htmlFor="position" className="block text-sm font-medium text-gray-700 group-focus-within:text-[#c39d5e] transition-colors">Position</label>
                   <select
@@ -384,7 +397,7 @@ const Index = () => {
                     value={formData.position}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm appearance-none cursor-pointer"
+                    className="w-full px-4 md:px-5 py-2.5 md:py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm appearance-none cursor-pointer"
                   >
                     <option value="">Select a position</option>
                     <option value="baker">Baker</option>
@@ -402,7 +415,7 @@ const Index = () => {
                     value={formData.employmentType}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm appearance-none cursor-pointer"
+                    className="w-full px-4 md:px-5 py-2.5 md:py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm appearance-none cursor-pointer"
                   >
                     <option value="">Select employment type</option>
                     <option value="fullTime">Full-Time</option>
@@ -418,7 +431,7 @@ const Index = () => {
                     value={formData.workEligibility}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm appearance-none cursor-pointer"
+                    className="w-full px-4 md:px-5 py-2.5 md:py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm appearance-none cursor-pointer"
                   >
                     <option value="">Are you eligible to work in the UK?</option>
                     <option value="yes">Yes</option>
@@ -435,33 +448,34 @@ const Index = () => {
                     value={formData.startDate}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
+                    className="w-full px-4 md:px-5 py-2.5 md:py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm"
                   />
                 </div>
               </div>
             </div>
 
             {/* Experience Section */}
-            <div className="space-y-6 pt-6">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                <span className="w-8 h-8 rounded-full bg-[#c39d5e]/10 flex items-center justify-center mr-3">
-                  <svg className="w-4 h-4 text-[#c39d5e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="space-y-4 md:space-y-6 pt-4 md:pt-6">
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4 md:mb-6 flex items-center">
+                <span className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-[#c39d5e]/10 flex items-center justify-center mr-2 md:mr-3">
+                  <svg className="w-3 h-3 md:w-4 md:h-4 text-[#c39d5e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </span>
                 Experience & CV
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <div className="space-y-2 group">
                   <label htmlFor="experience" className="block text-sm font-medium text-gray-700 group-focus-within:text-[#c39d5e] transition-colors">Work Experience</label>
                   <textarea
                     id="experience"
                     name="experience"
                     rows={4}
+                    required
                     value={formData.experience}
                     onChange={handleInputChange}
-                    className="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm resize-none"
+                    className="w-full px-4 md:px-5 py-2.5 md:py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#c39d5e] focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm resize-none"
                     placeholder="Tell us about your relevant work experience"
                   ></textarea>
                 </div>
@@ -470,7 +484,7 @@ const Index = () => {
                 <div className="space-y-2">
                   <label htmlFor="cv" className="block text-sm font-medium text-gray-700">Upload CV</label>
                   <div className="flex items-center justify-center w-full">
-                    <label htmlFor="cv" className="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-200 border-dashed rounded-xl cursor-pointer hover:bg-gray-50/50 transition-all duration-200 group">
+                    <label htmlFor="cv" className="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-200 border-dashed rounded-xl cursor-pointer hover:bg-gray-50/50 transition-all duration-200 group relative">
                       <div className="flex flex-col items-center justify-center pt-5 pb-6">
                         <svg className="w-10 h-10 mb-4 text-gray-400 group-hover:text-[#c39d5e] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
@@ -497,11 +511,11 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="flex justify-end pt-8">
+            <div className="flex justify-end pt-6 md:pt-8">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-8 py-4 bg-[#c39d5e] text-white rounded-xl hover:bg-[#b38d4e] transition-all duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-[#c39d5e] transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center gap-2"
+                className="w-full md:w-auto px-6 md:px-8 py-3 md:py-4 bg-[#c39d5e] text-white rounded-xl hover:bg-[#b38d4e] transition-all duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-[#c39d5e] transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>
