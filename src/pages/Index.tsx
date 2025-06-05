@@ -503,7 +503,6 @@ const Index = () => {
                         className="hidden" 
                         accept=".pdf,.doc,.docx" 
                         onChange={handleFileChange}
-                        required
                       />
                     </label>
                   </div>
