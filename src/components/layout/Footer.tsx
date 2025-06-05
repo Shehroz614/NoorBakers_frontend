@@ -1,10 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Mail, Facebook, Instagram,  ArrowUp } from "lucide-react";
+import { Mail, ArrowUp,MapPin } from "lucide-react"; // Only Mail remains from lucide-react
 import { useTheme } from "@/contexts/ThemeContext";
 import logowhite from "@/assets/Mediamodifier-Design (5) (1).svg";
 import footerlogo from "@/assets/image copy 2.png";
-
+import download_1 from "@/assets/download (1).svg";
+import download_2 from "@/assets/download2.svg";
+import footerlogonew from "@/assets/footerlogonew.svg";
+import facebook from "@/assets/facebook.svg";
+import instagram from "@/assets/instagram.svg";
+import snapchat from "@/assets/snapchat.svg";
+import tiktok1 from "@/assets/tiktok1.svg";
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -20,16 +26,17 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
           {/* Left Column: Logo and Tagline */}
           <div className="text-center md:text-left">
-            <div className="mb-3 flex flex-col justify-center items-center md:justify-start">
+            <div className=" flex flex-col justify-center items-center md:justify-start">
               <img 
-                src={footerlogo}
+                 src={footerlogonew}
+                 alt="Noor Bakers Logo" 
+                 className="h-20 w-20"
+               />
+              <img 
+                src={download_1}
                 alt="Noor Bakers Logo" 
-                
-                className="h-23 w-20  mx-auto md:mx-0"
+                className="h-20 w-25"
               />
-            <p className="text-gray-300 text-2xl text-center ">
-              Happiness'  <br />one bite at a time.
-            </p>
             </div>
             <div>
               
@@ -38,9 +45,8 @@ const Footer = () => {
 
           {/* Right Column: Contact Info and Social Links */}
           <div className="mx-auto">
-
-          <div className=" flex flex-col items-start justify-start space-y-6">
-            <h4 className="text-lg font-semibold mb-4 text-[#c39d5e] font-serif">Contact Info</h4>
+            <div className=" flex flex-col items-start justify-start space-y-6">
+              <h4 className="text-lg font-semibold mb-4 text-[#c39d5e] font-serif">Contact Info</h4>
               <div className="flex items-start mb-4">
                 <MapPin className="h-5 w-5 mr-3 text-[#c39d5e] mt-1 group-hover:scale-110 transition-transform duration-300" />
                 <span className="text-gray-400 text-sm font-sans text-left leading-relaxed">
@@ -55,22 +61,26 @@ const Footer = () => {
                   info@noorbakersandsweets.com
                 </a>
               </div>
-            <h4 className="text-2xl font-semibold mb-4 text-[#c39d5e] ">"Stay Connected!"</h4>
-            <div className="flex items-center justify-center  space-x-3">
-              {[
-                { icon: <Facebook className="h-5 w-5" />, href: "#" },
-                { icon: <Instagram className="h-5 w-5" />, href: "#" },
-              ].map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className={`${theme === 'dark' ? 'bg-[#2d2a33]' : 'bg-[#2d2a33]/90'} p-2 rounded-full text-[#c39d5e] hover:text-white hover:bg-[#c39d5e] transition-all duration-300 hover:scale-110`}
-                >
-                  {social.icon}
-                </a>
-              ))}
+              <h4 className="text-2xl font-semibold mb-4 text-[#c39d5e]">"Stay Connected!"</h4>
+              <div className="flex items-center justify-center space-x-3">
+                {[
+                  { icon: <img src={facebook} alt="Facebook" className="h-5 w-5" />, href: "https://www.facebook.com/profile.php?id=61574051793643" },
+                  { icon: <img src={instagram} alt="Instagram" className="h-5 w-5" />, href: "https://www.instagram.com/noor.bakers.official?igsh=MTVzNW5qdXhrOXdteg%3D%3D&utm_source=qr" },
+                  { icon: <img src={snapchat} alt="Snapchat" className="h-5 w-5" />, href: "https://www.snapchat.com/add/noor-bakers?invite_id=8JWJ3T6h&locale=en_GB&share_id=glibEaMgTmmpb6SZWULzjw&sid=bd354140db494c9ab9ff0967d00351fd" },
+                  { icon: <img src={tiktok1} alt="TikTok" className="h-5 w-5" />, href: "https://www.tiktok.com/@noorbakers?_t=ZN-8wqiTqXtdxO&_r=1" },
+                ].map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${theme === 'dark' ? 'bg-[#2d2a33]' : 'bg-[#2d2a33]/90'} p-2 rounded-full text-[#c39d5e] hover:text-white hover:bg-[#c39d5e] transition-all duration-300 hover:scale-110`}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
           </div>
         </div>
 

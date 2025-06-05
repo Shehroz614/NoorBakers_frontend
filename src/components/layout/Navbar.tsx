@@ -5,8 +5,17 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { useTheme } from "@/contexts/ThemeContext";
 import MobileMenu from "@/components/layout/MobileMenu";
-import logowhite from "@/assets/Mediamodifier-Design (4) (1).svg";
+// import logowhite from "@/assets/Mediamodifier-Design (4) (1).svg";
 import logodark from "@/assets/Mediamodifier-Design (5) (1).svg";
+import logowhite from "@/assets/NOOR_LOGO.svg";
+import NOOR_BAKERS_LOGO from "@/assets/NOOR_BAKERS_LOGO.svg";
+import Noor_LOGO__DARK from "@/assets/download.svg";
+import download_1 from "@/assets/download (1).svg";
+
+
+
+
+
 
 const Navbar = () => {
     const { theme } = useTheme();
@@ -33,13 +42,19 @@ const Navbar = () => {
     <nav className={`${theme === 'dark' ? 'bg-[#2d2a33] border-[#3a3741]' : 'bg-white border-[#FEC6A1]/20'} 
         border-b py-4 px-2 md:px-4 sticky top-0 z-50 shadow-sm transition-all duration-300 
         ${visible ? 'navbar-visible' : 'navbar-hidden'}`}>
-        <div className="mx-auto flex justify-between items-center">
-          <div className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} text-2xl md:text-3xl font-bold`}>
-          {theme === 'dark' ? <>
-            <img src={logodark} alt="" className="w-40 h-16" /> 
-          </>:<>
-          
+        <div className="flex justify-between items-center">
+          <div className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} text-2xl md:text-3xl w-1/2 font-bold`}>
+          {theme === 'dark' ? <div className="flex items-center ">
+            <img src={Noor_LOGO__DARK} alt="" className="w-40 h-16" /> 
+                        <img src={download_1} alt="" className="w-40 h-16" /> 
+
+          </div>:<>
+          <div className="flex items-center ">
+
            <img src={logowhite} alt="" className="w-40 h-16" /> 
+                      <img src={NOOR_BAKERS_LOGO} alt="" className="w-40 h-16" /> 
+
+          </div>
           </>}
           </div>
           <div className="hidden md:flex space-x-6 items-center">
