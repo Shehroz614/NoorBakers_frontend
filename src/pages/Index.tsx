@@ -12,6 +12,23 @@ import logowhite from "/Mediamodifier-Design (5) (1).svg";
 import heropic from "../assets/heropic.svg";
 import cookies from "../assets/cookies.svg";
 import image1 from "../assets/Screenshot 2025-06-02 010620.png";
+import first from "../assets/Group 1.svg";
+import second from "../assets/Group 13.svg";
+import fourth from "../assets/Group 4.svg";
+import fifth from "../assets/Group 5.svg";
+import six from "../assets/Group 6.svg";
+import seven from "../assets/Group 7.svg";
+import eight from "../assets/Group 8.svg";
+import nine from "../assets/Group 9.svg";
+import ten from "../assets/Group 10.svg";
+import eleven from "../assets/Group 11.svg";
+import twelve from "../assets/Group 12.svg";
+import third from "../assets/Group 19.svg";
+
+
+
+
+
 import { toast } from "sonner";
 
 
@@ -231,17 +248,18 @@ const Index = () => {
           <div className="text-center mb-12 animate-on-scroll" style={{ transition: 'all 0.6s ease-out' }}>
             <div className="inline-block mb-2">
               <h2 className={`text-3xl md:text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} mb-4`}>
-                <span className="text-[#c39d5e]">Handcrafted Delights</span> For Every Occasion
+                <span className="text-[#c39d5e]">Handcrafted Delights</span> For every Occasion
               </h2>
               <h1 className={`inline-block px-4 py-1 rounded-full  text-3xl  text-[#c39d5e] font-bold `}>About Us</h1>
             </div>
-            <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-[#8A898C]'}  text-center`}>
+            <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-black'}  text-center`}>
               At Noor Bakers & Sweets, we believe every bite should bring joy. Founded with a passion for quality and tradition,
               we're here to serve freshly baked goods, handcrafted cakes, and authentic sweets that make every moment special. <br />
+              <br />
 
               Whether you're after a buttery biscuit with your chai, a custom cake for your celebration, or a box of classic mithai for someone you love
               we've got you covered. Every item we create is made with care, premium ingredients, and that unmistakable Noor touch. <br />
-
+<br />
               Rooted in tradition, inspired by flavour, and baked for today
               Noor Bakers & Sweets is your go-to spot for taste that speaks for itself.            </p>
           </div>
@@ -278,18 +296,74 @@ const Index = () => {
           </div> */}
         </div>
       </section>
+<div className="bg-white openSans  ">
 
 
-      <div className=" inset-0 w-full h-full overflow-hidden z-0">
+      <div className="grid grid-cols-4 gap-y-8   max-w-6xl  mx-auto py-10 px-10 bg-white mb-9">
+  {/* Row 1 */}
+  <div className="flex flex-col items-center">
+    <img src={first} alt="Chocolates" className="w-16 h-16" />
+    <span className="mt-2 text-center  font-bold text-black text-[16px]">Chocolates</span>
+  </div>
+  <div className="flex flex-col items-center">
+    <img src={third} alt="Savouries" className="w-16 h-16" />
+    <span className="mt-2 text-center font-bold text-black text-[16px]">Desserts</span>
+  </div>
+  <div className="flex flex-col items-center">
+    <img src={second} alt="Desserts" className="w-16 h-16" />
+    <span className="mt-2 text-center font-bold text-black text-[16px]">Savouries</span>
+  </div>
+  <div className="flex flex-col items-center">
+    <img src={fourth} alt="Mithai" className="w-16 h-16" />
+    <span className="mt-2 text-center font-bold text-black text-[16px]">Mithai  (Traditional <br />Sweets)</span>
+  </div>
+
+  {/* Row 2 */}
+  <div className="flex flex-col items-center">
+    <img src={fifth} alt="Ready Meals" className="w-16 h-16" />
+    <span className="mt-2 text-center font-bold text-black text-[16px]">Ready Meals</span>
+  </div>
+  <div className="flex flex-col items-center">
+    <img src={six} alt="Hot & Cold Drinks" className="w-16 h-16" />
+    <span className="mt-2 text-center font-bold text-black text-[16px]">Hot & Cold Drinks</span>
+  </div>
+  <div className="flex flex-col items-center">
+    <img src={seven} alt="Celebration Cakes" className="w-16 h-16" />
+    <span className="mt-2 text-center font-bold text-black text-[16px]">Celebration Cakes</span>
+  </div>
+  <div className="flex flex-col items-center">
+    <img src={eight} alt="Pastries" className="w-16 h-16" />
+    <span className="mt-2 text-center font-bold text-black text-[16px]">Pastries</span>
+  </div>
+
+  {/* Row 3 */}
+  <div className="flex flex-col items-center">
+    <img src={nine} alt="Fresh Bread" className="w-16 h-16" />
+    <span className="mt-2 text-center font-bold text-black text-[16px]">Fresh Bread</span>
+  </div>
+  <div className="flex flex-col items-center">
+    <img src={ten} alt="Handmade Biscuits" className="w-16 h-16" />
+    <span className="mt-2 text-center font-bold text-black text-[16px]">Handmade Biscuits</span>
+  </div>
+  <div className="flex flex-col items-center">
+    <img src={eleven} alt="Handmade Cookies" className="w-16 h-16" />
+    <span className="mt-2 text-center font-bold text-black text-[16px]">Handmade Cookies</span>
+  </div>
+  <div className="flex flex-col items-center">
+    <img src={twelve} alt="Baklava & Middle Eastern Sweets" className="w-16 h-16" />
+    <span className="mt-2 text-center font-bold text-black text-[16px]">Baklava & <br /> Middle Eastern <br /> Sweets</span>
+  </div>
+</div>
+      {/* <div className=" inset-0 w-full h-full overflow-hidden z-0">
         <img
           src={image1}
           alt="Bakery hero"
           className="w-full h-full object-cover"
         />
         <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? "" : ""}`}></div>
-      </div>
+      </div> */}
 
-      <div className=" inset-0 w-full h-full overflow-hidden z-0">
+      <div className=" inset-0 w-full h-full overflow-hidden z-0 pt-20 ">
         <img
           src={cookies}
           alt="Bakery hero"
@@ -297,6 +371,11 @@ const Index = () => {
         />
         <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? "" : ""}`}></div>
       </div>
+</div>
+
+
+
+
 
       <div className="relative overflow-hidden min-h-[90vh] flex items-center bg-gradient-to-b from-white via-[#FEF7CD]/10 to-white py-24">
         <div className="w-full md:w-4/5 mx-auto px-4 md:px-6 lg:px-10 relative z-10">

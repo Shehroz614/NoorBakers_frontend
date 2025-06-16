@@ -108,7 +108,14 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 3s ease-in-out infinite',
 				'pulse-gold': 'pulse-gold 2s infinite',
-			}
+			},
+			
+    
+      fontFamily: {
+        openSans: ['"Open Sans"', 'sans-serif'],
+      
+    
+  },
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

@@ -10,7 +10,8 @@ import footerlogonew from "@/assets/footerlogonew.svg";
 import facebook from "@/assets/facebook.svg";
 import instagram from "@/assets/instagram.svg";
 import snapchat from "@/assets/snapchat.svg";
-import tiktok1 from "@/assets/tiktok1.svg";
+import tiktok1 from "@/assets/Group 18.svg";
+
 
 const Footer = () => {
   const { theme } = useTheme();
