@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { CakeSlice, Coffee, Star, MapPin, Clock, Phone, ChevronRight, ShoppingBag, Award, Heart, Mail, Send, ArrowRight, MessageCircle, User, Loader2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { useTheme } from "@/contexts/ThemeContext";
 import MobileMenu from "@/components/layout/MobileMenu";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import logodark from "/Mediamodifier-Design (4) (1).svg";
-import logowhite from "/Mediamodifier-Design (5) (1).svg";
 import heropic from "../assets/heropic.svg";
 import cookies from "../assets/cookies.svg";
-import image1 from "../assets/Screenshot 2025-06-02 010620.png";
 import first from "../assets/Group 1.svg";
 import second from "../assets/Group 13.svg";
 import fourth from "../assets/Group 4.svg";
@@ -25,24 +20,12 @@ import eleven from "../assets/Group 11.svg";
 import twelve from "../assets/Group 12.svg";
 import third from "../assets/Group 19.svg";
 
-
-
-
-
 import { toast } from "sonner";
-
-
-
-
-
 
 const Index = () => {
   const { theme } = useTheme();
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -213,8 +196,6 @@ const Index = () => {
           <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? '' : ''}`}></div>
         </div>
 
-
-
         <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
           <div className=" mx-auto text-center">
 
@@ -222,10 +203,7 @@ const Index = () => {
               Something Delicious is Baking...
             </h1>
 
-
-
             {/* Enhanced social proof with awards */}
-
 
             {/* Awards badge */}
 

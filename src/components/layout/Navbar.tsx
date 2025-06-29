@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { CakeSlice, Coffee, Star, MapPin, Clock, Phone, ChevronRight, ShoppingBag, Award, Heart, Mail, Send, ArrowRight, MessageCircle, User } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { useTheme } from "@/contexts/ThemeContext";
 import MobileMenu from "@/components/layout/MobileMenu";
 // import logowhite from "@/assets/Mediamodifier-Design (4) (1).svg";
-import logodark from "@/assets/Mediamodifier-Design (5) (1).svg";
 import logowhite from "@/assets/NOOR_LOGO.svg";
 import NOOR_BAKERS_LOGO from "@/assets/NOOR_BAKERS_LOGO.svg";
 import Noor_LOGO__DARK from "@/assets/download.svg";

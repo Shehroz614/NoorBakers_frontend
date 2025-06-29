@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Mail, ArrowUp,MapPin } from "lucide-react"; // Only Mail remains from lucide-react
 import { useTheme } from "@/contexts/ThemeContext";
 import logowhite from "@/assets/Mediamodifier-Design (5) (1).svg";
@@ -91,24 +90,6 @@ const Footer = () => {
             <p className="text-gray-400 text-xs font-sans mb-3 md:mb-0 text-center md:text-left">
               © {new Date().getFullYear()} NOOR Bakers & Sweets. All rights reserved.
             </p>
-            <div className="flex items-center space-x-3">
-              {[
-                { name: "Privacy Policy", path: "/privacy-policy" },
-                { name: "Terms of Service", path: "/terms-of-service" },
-                { name: "Cookie Policy", path: "/cookie-policy" }
-              ].map((item, index) => (
-                <div key={index} className="flex items-center">
-                  <Link 
-                    to={item.path}
-                    className="text-gray-400 text-xs font-sans hover:text-[#c39d5e] transition-colors duration-300 relative group"
-                  >
-                    {item.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#c39d5e] transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  {index < 2 && <span className="text-gray-400 text-xs mx-1">•</span>}
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Scroll to top button */}
