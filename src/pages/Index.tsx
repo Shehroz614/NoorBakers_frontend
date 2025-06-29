@@ -6,6 +6,8 @@ import MobileMenu from "@/components/layout/MobileMenu";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { AnimatedLogo } from "@/components/common/AnimatedLogo";
+import { TypewriterText } from "@/components/common/TypewriterText";
+import { motion } from "framer-motion";
 import heropic from "../assets/heropic.svg";
 import cookies from "../assets/cookies.svg";
 import first from "../assets/Group 1.svg";
@@ -201,11 +203,11 @@ const Index = () => {
           <div className=" mx-auto text-center">
             {/* Animated Logo - positioned above the headline */}
             <div className="mb-8 flex justify-center">
-              <AnimatedLogo variant="hero" className="scale-125" />
+              <AnimatedLogo variant="hero" className="" />
             </div>
 
             <h1 className={`text-3xl md:text-4xl lg:text-7xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} leading-tight mb-6 fade-in`}>
-              Something Delicious is Baking...
+              <TypewriterText text="Something Delicious is Baking..." />
             </h1>
 
             {/* Enhanced social proof with awards */}
@@ -220,14 +222,41 @@ const Index = () => {
       <section className={`py-16 ${theme === 'dark' ? 'bg-[#1e1c22]' : 'bg-white'} transition-colors duration-300 overflow-hidden`}>
         <div className="max-w-7xl mx-auto px-6 md:px-10 relative">
 
-          <div className="text-center mb-12 animate-on-scroll" style={{ transition: 'all 0.6s ease-out' }}>
+          <motion.div 
+            className="text-center mb-12 animate-on-scroll" 
+            style={{ transition: 'all 0.6s ease-out' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <div className="inline-block mb-2">
-              <h2 className={`text-3xl md:text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} mb-4`}>
+              <motion.h2 
+                className={`text-3xl md:text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} mb-4`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 <span className="text-[#c39d5e]">Handcrafted Delights</span> For every Occasion
-              </h2>
-              <h1 className={`inline-block px-4 py-1 rounded-full  text-3xl  text-[#c39d5e] font-bold `}>About Us</h1>
+              </motion.h2>
+              <motion.h1 
+                className={`inline-block px-4 py-1 rounded-full text-3xl text-[#c39d5e] font-bold`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                About Us
+              </motion.h1>
             </div>
-            <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-black'}  text-center`}>
+            <motion.p 
+              className={`${theme === 'dark' ? 'text-gray-300' : 'text-black'} text-center`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
               At Noor Bakers & Sweets, we believe every bite should bring joy. Founded with a passion for quality and tradition,
               we're here to serve freshly baked goods, handcrafted cakes, and authentic sweets that make every moment special. <br />
               <br />
@@ -236,68 +265,158 @@ const Index = () => {
               we've got you covered. Every item we create is made with care, premium ingredients, and that unmistakable Noor touch. <br />
               <br />
               Rooted in tradition, inspired by flavour, and baked for today
-              Noor Bakers & Sweets is your go-to spot for taste that speaks for itself.            </p>
-          </div>
+              Noor Bakers & Sweets is your go-to spot for taste that speaks for itself.            </motion.p>
+          </motion.div>
         </div>
       </section>
       <div className="bg-white openSans  ">
 
 
-        <div className="grid grid-cols-4 gap-y-8   max-w-6xl  mx-auto py-10 px-10 bg-white mb-9">
+        <motion.div 
+          className="grid grid-cols-4 gap-y-8 max-w-6xl mx-auto py-10 px-10 bg-white mb-9"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           {/* Row 1 */}
-          <div className="flex flex-col items-center">
+          <motion.div 
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
             <img src={first} alt="Chocolates" className="w-16 h-16" />
-            <span className="mt-2 text-center  font-bold text-black text-[16px]">Chocolates</span>
-          </div>
-          <div className="flex flex-col items-center">
+            <span className="mt-2 text-center font-bold text-black text-[16px]">Chocolates</span>
+          </motion.div>
+          <motion.div 
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
             <img src={third} alt="Savouries" className="w-16 h-16" />
             <span className="mt-2 text-center font-bold text-black text-[16px]">Desserts</span>
-          </div>
-          <div className="flex flex-col items-center">
+          </motion.div>
+          <motion.div 
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
             <img src={second} alt="Desserts" className="w-16 h-16" />
             <span className="mt-2 text-center font-bold text-black text-[16px]">Savouries</span>
-          </div>
-          <div className="flex flex-col items-center">
+          </motion.div>
+          <motion.div 
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
             <img src={fourth} alt="Mithai" className="w-16 h-16" />
             <span className="mt-2 text-center font-bold text-black text-[16px]">Mithai  (Traditional <br />Sweets)</span>
-          </div>
+          </motion.div>
 
           {/* Row 2 */}
-          <div className="flex flex-col items-center">
+          <motion.div 
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
             <img src={fifth} alt="Ready Meals" className="w-16 h-16" />
             <span className="mt-2 text-center font-bold text-black text-[16px]">Ready Meals</span>
-          </div>
-          <div className="flex flex-col items-center">
+          </motion.div>
+          <motion.div 
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
             <img src={six} alt="Hot & Cold Drinks" className="w-16 h-16" />
             <span className="mt-2 text-center font-bold text-black text-[16px]">Hot & Cold Drinks</span>
-          </div>
-          <div className="flex flex-col items-center">
+          </motion.div>
+          <motion.div 
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
             <img src={seven} alt="Celebration Cakes" className="w-16 h-16" />
             <span className="mt-2 text-center font-bold text-black text-[16px]">Celebration Cakes</span>
-          </div>
-          <div className="flex flex-col items-center">
+          </motion.div>
+          <motion.div 
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
             <img src={eight} alt="Pastries" className="w-16 h-16" />
             <span className="mt-2 text-center font-bold text-black text-[16px]">Pastries</span>
-          </div>
+          </motion.div>
 
           {/* Row 3 */}
-          <div className="flex flex-col items-center">
+          <motion.div 
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
             <img src={nine} alt="Fresh Bread" className="w-16 h-16" />
             <span className="mt-2 text-center font-bold text-black text-[16px]">Fresh Bread</span>
-          </div>
-          <div className="flex flex-col items-center">
+          </motion.div>
+          <motion.div 
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 1.0 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
             <img src={ten} alt="Handmade Biscuits" className="w-16 h-16" />
             <span className="mt-2 text-center font-bold text-black text-[16px]">Handmade Biscuits</span>
-          </div>
-          <div className="flex flex-col items-center">
+          </motion.div>
+          <motion.div 
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 1.1 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
             <img src={eleven} alt="Handmade Cookies" className="w-16 h-16" />
             <span className="mt-2 text-center font-bold text-black text-[16px]">Handmade Cookies</span>
-          </div>
-          <div className="flex flex-col items-center">
+          </motion.div>
+          <motion.div 
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 1.2 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
             <img src={twelve} alt="Baklava & Middle Eastern Sweets" className="w-16 h-16" />
             <span className="mt-2 text-center font-bold text-black text-[16px]">Baklava & <br /> Middle Eastern <br /> Sweets</span>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         {/* <div className=" inset-0 w-full h-full overflow-hidden z-0">
         <img
           src={image1}
@@ -307,29 +426,115 @@ const Index = () => {
         <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? "" : ""}`}></div>
       </div> */}
 
-        <div className=" inset-0 w-full h-full overflow-hidden z-0 pt-20 ">
+        <motion.div 
+          className=" inset-0 w-full h-full overflow-hidden z-0 pt-20 "
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2 }}
+        >
           <img
             src={cookies}
             alt="Bakery hero"
             className="w-full h-full object-cover opacity-50"
           />
           <div className={`absolute inset-0 w-full h-full ${theme === 'dark' ? "" : ""}`}></div>
-        </div>
+        </motion.div>
       </div>
 
-
-
-
-
-      <div className="relative overflow-hidden min-h-[90vh] flex items-center bg-gradient-to-b from-white via-[#FEF7CD]/10 to-white py-24">
+      <motion.div 
+        className="relative overflow-hidden min-h-[90vh] flex items-center bg-gradient-to-b from-white via-[#FEF7CD]/10 to-white py-24"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="w-full md:w-4/5 mx-auto px-4 md:px-6 lg:px-10 relative z-10">
-          <div className="text-center mb-8 md:mb-16">
-            <span className="inline-block px-4 py-1 rounded-full text-sm font-medium bg-[#c39d5e]/10 text-[#c39d5e] mb-4 animate-fade-in">Join Our Team</span>
-            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-800 mb-4 md:mb-6">We're Hiring!</h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">Join our passionate team and be part of creating delightful moments for our customers</p>
-          </div>
+          <motion.div 
+            className="text-center mb-8 md:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <motion.span 
+              className="inline-block px-4 py-1 rounded-full text-sm font-medium bg-[#c39d5e]/10 text-[#c39d5e] mb-4 animate-fade-in"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              Join Our Team
+            </motion.span>
+            <motion.h2 
+              className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-800 mb-4 md:mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              animate={{ 
+                y: [0, -20, 0],
+                scale: [1, 1.05, 1],
+                rotate: [0, 2, 0, -2, 0],
+                color: ["#1f2937", "#c39d5e", "#1f2937", "#c39d5e", "#1f2937"],
+                textShadow: [
+                  "0 0 0px rgba(195, 157, 94, 0)",
+                  "0 0 20px rgba(195, 157, 94, 0.8)",
+                  "0 0 0px rgba(195, 157, 94, 0)",
+                  "0 0 20px rgba(195, 157, 94, 0.8)",
+                  "0 0 0px rgba(195, 157, 94, 0)"
+                ]
+              }}
+              transition={{
+                duration: 0.45,
+                delay: 0.45,
+                y: {
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                },
+                scale: {
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                },
+                rotate: {
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                },
+                color: {
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                },
+                textShadow: {
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
+              }}
+            >
+              We're Hiring!
+            </motion.h2>
+            <motion.p 
+              className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              Join our passionate team and be part of creating delightful moments for our customers
+            </motion.p>
+          </motion.div>
 
-          <form onSubmit={handleSubmit} className="max-w-4xl mx-auto space-y-6 md:space-y-8 bg-white/80 backdrop-blur-lg p-6 md:p-12 rounded-2xl shadow-xl border border-gray-100">
+          <motion.form 
+            onSubmit={handleSubmit} 
+            className="max-w-4xl mx-auto space-y-6 md:space-y-8 bg-white/80 backdrop-blur-lg p-6 md:p-12 rounded-2xl shadow-xl border border-gray-100"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 1 }}
+          >
             {/* Personal Information Section */}
             <div className="space-y-4 md:space-y-6">
               <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4 md:mb-6 flex items-center">
@@ -549,9 +754,9 @@ const Index = () => {
                 )}
               </button>
             </div>
-          </form>
+          </motion.form>
         </div>
-      </div>
+      </motion.div>
 
       <Footer />
     </div>

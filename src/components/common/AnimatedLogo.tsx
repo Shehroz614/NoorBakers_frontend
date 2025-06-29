@@ -40,8 +40,8 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ variant, className =
           setHasAnimated(true);
           
           // Show navbar logo slightly before animation completes (1ms earlier)
-          const animationDuration = 800; // 0.8 seconds in ms
-          const earlyTrigger = 200; // 1ms earlier
+          const animationDuration = 1200; // 0.8 seconds in ms
+          const earlyTrigger = 300; // 1ms earlier
           
           setTimeout(() => {
             setShowNavbarLogo(true);
@@ -53,7 +53,7 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ variant, className =
             y: -window.innerHeight / 2 + 50, // Move to top
             scale: 0.7,
             transition: {
-              duration: 0.8,
+              duration: 1.2,
               ease: "easeInOut"
             }
           });
