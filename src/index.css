@@ -100,3 +100,32 @@
   font-family: 'Open Sans', sans-serif;
   }
 }
+
+/* Logo Animation Styles */
+@layer components {
+  .logo-animation-container {
+    will-change: transform;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+
+  .hero-logo {
+    position: relative;
+    z-index: 1000;
+  }
+
+  .navbar-logo {
+    position: relative;
+    z-index: 50;
+  }
+
+  /* Ensure smooth scrolling for the animation trigger */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent layout thrashing during animation */
+  .animated-logo {
+    contain: layout style paint;
+  }
+}

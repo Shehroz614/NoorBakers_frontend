@@ -2,16 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { useTheme } from "@/contexts/ThemeContext";
 import MobileMenu from "@/components/layout/MobileMenu";
-// import logowhite from "@/assets/Mediamodifier-Design (4) (1).svg";
-import logowhite from "@/assets/NOOR_LOGO.svg";
-import NOOR_BAKERS_LOGO from "@/assets/NOOR_BAKERS_LOGO.svg";
-import Noor_LOGO__DARK from "@/assets/download.svg";
-import download_1 from "@/assets/download (1).svg";
-
-
-
-
-
+import { AnimatedLogo } from "@/components/common/AnimatedLogo";
 
 const Navbar = () => {
     const { theme } = useTheme();
@@ -40,33 +31,13 @@ const Navbar = () => {
         ${visible ? 'navbar-visible' : 'navbar-hidden'}`}>
         <div className="flex justify-between items-center">
           <div className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} text-2xl md:text-3xl w-1/2 font-bold`}>
-          {theme === 'dark' ? <div className="flex items-center ">
-            <img src={Noor_LOGO__DARK} alt="" className="w-40 h-16" /> 
-                        <img src={download_1} alt="" className="w-40 h-16" /> 
-
-          </div>:<>
-          <div className="flex items-center ">
-
-           <img src={logowhite} alt="" className="h-16" /> 
-                      <img src={NOOR_BAKERS_LOGO} alt="" className="w-40 h-16" /> 
-
-          </div>
-          </>}
+            <AnimatedLogo variant="navbar" />
           </div>
           <div className="hidden md:flex space-x-6 items-center">
-            {/* <Link to="/" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>Home</Link>
-            <Link to="/services" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>Services</Link>
-            <Link to="/about" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>About</Link>
-            <Link to="/contact" className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e] transition-colors`}>Contact</Link> */}
             <ThemeToggle />
           </div>
           <div className="md:hidden flex items-center gap-4">
             <ThemeToggle />
-            {/* <button onClick={toggleMobileMenu} className={`${theme === 'dark' ? 'text-white' : 'text-[#403E43]'} hover:text-[#c39d5e]`}>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button> */}
           </div>
         </div>
         <MobileMenu isOpen={mobileMenuOpen} toggleMenu={toggleMobileMenu} />
